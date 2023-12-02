@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
-import { LayoutChangeEvent, StyleSheet, View } from "react-native";
+import { LayoutChangeEvent, StyleSheet } from "react-native";
 import Animated, {
   withDelay,
   withRepeat,
@@ -27,7 +27,7 @@ export const MaskedSkeleton = ({
     width: 0,
     height: 0,
   });
-  const isVertical =
+  const isHorizontal =
     direction.startsWith("left") || direction.startsWith("right");
 
   const animate = useCallback(
@@ -89,7 +89,7 @@ export const MaskedSkeleton = ({
     return {
       opacity: opacity.value,
       transform: [
-        isVertical
+        isHorizontal
           ? {
               translateX: translate.value,
             }
@@ -102,11 +102,11 @@ export const MaskedSkeleton = ({
 
   return (
     <MaskedView
-      style={[{ width: "100%", }]}
+      style={{ width: "100%" }}
       maskElement={maskElement}
       onLayout={onLayout}
     >
-      <Animated.View style={[{ backgroundColor: colors[0] }]}>
+      <Animated.View style={{ backgroundColor: colors[0] }}>
         <Animated.View style={animatedStyle}>
           <LinearGradient
             style={styles.gradient}
