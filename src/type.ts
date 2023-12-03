@@ -7,7 +7,7 @@ export type Direction =
   | "topToBottom"
   | "bottomToTop";
 
-export type MaskedSkeletonProps = {
+export type LoaderProps = {
   /**
    * ReactElement for the Skeleton. Passed to MaskedView.
    */

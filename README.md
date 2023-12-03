@@ -6,7 +6,7 @@ Under the hood, this library is using [`@react-native-masked-view/masked-view`](
 [`expo-linear-gradient`](https://www.npmjs.com/package/expo-linear-gradient) and [`react-native-reanimated`](https://github.com/software-mansion/react-native-reanimated).
 
 ## Example
-<img src="./assets/example.gif" />
+<img src="./.github/images/example.gif" />
 
 ## Setup
 ```bash

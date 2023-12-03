@@ -11,16 +11,16 @@ import Animated, {
   useAnimatedStyle,
 } from "react-native-reanimated";
 
-import { MaskedSkeletonProps } from "./type";
+import { LoaderProps } from "./type";
 import { getXYPosition, getGradientColors } from "./utils";
 
-export const MaskedSkeleton = ({
+export const Loader = ({
   colors,
   maskElement,
   delay = 500,
   duration = 2000,
   direction = "leftToRight",
-}: MaskedSkeletonProps) => {
+}: LoaderProps) => {
   const translate = useSharedValue(0);
   const opacity = useSharedValue(0);
   const [dimension, setDimension] = useState({

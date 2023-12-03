@@ -1,21 +1,34 @@
 {
-  "name": "maskedskeleton",
-  "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "react-native-masked-skeleton",
+  "version": "1.0.1",
+  "description": "A animated Masked Skeleton Loader for React Native",
+  "main": "./index.ts",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "keywords": [
+    "react-native",
+    "react native",
+    "skeleton loader",
+    "masked loader",
+    "loader"
+  ],
+  "author": "Vajidali Khan",
+  "license": "MIT",
+  "homepage": "https://github.com/vajid-khan/react-native-masked-skeleton",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vajid-khan/react-native-masked-skeleton"
+  },
   "dependencies": {
-    "@react-native-masked-view/masked-view": "^0.2.8",
-    "expo": "~48.0.0",
-    "expo-linear-gradient": "~12.1.2",
-    "expo-status-bar": "~1.4.4",
+    "@react-native-masked-view/masked-view": "*",
+    "expo-linear-gradient": "*",
     "react": "18.2.0",
     "react-native": "0.71.14",
-    "react-native-easing-gradient": "^1.1.0",
+    "react-native-easing-gradient": "*",
     "react-native-reanimated": "~2.14.4"
   },
   "devDependencies": {
@@ -23,5 +36,9 @@
     "@types/react": "~18.0.27",
     "typescript": "^4.9.4"
   },
-  "private": true
+  "peerDependencies": {
+    "@react-native-masked-view/masked-view": "*",
+    "expo-linear-gradient": "*",
+    "react-native-easing-gradient": "*"
+  }
 }
