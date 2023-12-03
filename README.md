@@ -11,10 +11,10 @@ Under the hood, this library is using [`@react-native-masked-view/masked-view`](
 ## Setup
 ```bash
 # using npm
-$ npm i 
+$ npm i react-native-masked-skeleton
 
 # using yarn
-$ yarn add 
+$ yarn add react-native-masked-skeleton
 ```
 
 ## Usage
