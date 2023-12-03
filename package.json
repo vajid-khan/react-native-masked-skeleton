@@ -1,14 +1,9 @@
 {
   "name": "react-native-masked-skeleton",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A animated Masked Skeleton Loader for React Native",
   "main": "./index.ts",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
+  "scripts": {},
   "keywords": [
     "react-native",
     "react native",
