@@ -1,12 +1,11 @@
-import { View, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { Loader, Skeleton } from "react-native-masked-skeleton";
 
-import { Skeleton } from "../src/Skeleton";
-import { MaskedSkeleton } from "../src/MaskedSkeleton";
-
-export const Example = () => {
+export default function App() {
   return (
     <View style={styles.container}>
-      <MaskedSkeleton
+      <Loader
         duration={3000}
         direction="leftToRight"
         colors={["#d3d3d3", "#3e3e3e"]}
@@ -91,7 +90,7 @@ export const Example = () => {
       />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
