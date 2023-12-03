@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
-import { LayoutChangeEvent, StyleSheet } from "react-native";
+import { View, LayoutChangeEvent, StyleSheet } from "react-native";
 import Animated, {
   withDelay,
   withRepeat,
@@ -31,7 +31,17 @@ export const MaskedSkeleton = ({
     direction.startsWith("left") || direction.startsWith("right");
 
   const animate = useCallback(
-    (start: number, end: number) => {
+    ({
+      start,
+      end,
+      delay,
+      duration,
+    }: {
+      start: number;
+      end: number;
+      delay: number;
+      duration: number;
+    }) => {
       "worklet";
       translate.value = withDelay(
         delay,
@@ -44,7 +54,7 @@ export const MaskedSkeleton = ({
         )
       );
     },
-    [duration, delay, dimension.width, translate]
+    [translate]
   );
 
   useEffect(() => {
@@ -53,21 +63,41 @@ export const MaskedSkeleton = ({
       return;
     }
 
-    opacity.value = withDelay(delay, withTiming(1));
+    opacity.value = withDelay(delay, withTiming(1, { duration: 100 }));
 
     switch (direction) {
       case "rightToLeft":
-        animate(width, -width);
+        animate({
+          delay,
+          duration,
+          start: width,
+          end: -width,
+        });
         break;
       case "topToBottom":
-        animate(-height, height);
+        animate({
+          delay,
+          duration,
+          start: -height,
+          end: height,
+        });
         break;
       case "bottomToTop":
-        animate(height, -height);
+        animate({
+          delay,
+          duration,
+          start: height,
+          end: -height,
+        });
         break;
       case "leftToRight":
       default:
-        animate(-width, width);
+        animate({
+          delay,
+          duration,
+          start: -width,
+          end: width,
+        });
     }
 
     return () => {
@@ -75,7 +105,7 @@ export const MaskedSkeleton = ({
       opacity.value = 0;
       translate.value = 0;
     };
-  }, [duration, dimension.width, dimension.height, direction]);
+  }, [delay, duration, dimension.width, dimension.height, direction]);
 
   const onLayout = (event: LayoutChangeEvent) => {
     const {
@@ -101,12 +131,8 @@ export const MaskedSkeleton = ({
   });
 
   return (
-    <MaskedView
-      style={{ width: "100%" }}
-      maskElement={maskElement}
-      onLayout={onLayout}
-    >
-      <Animated.View style={{ backgroundColor: colors[0] }}>
+    <MaskedView onLayout={onLayout} maskElement={maskElement}>
+      <View style={{ backgroundColor: colors[0] }}>
         <Animated.View style={animatedStyle}>
           <LinearGradient
             style={styles.gradient}
@@ -114,7 +140,7 @@ export const MaskedSkeleton = ({
             colors={getGradientColors(colors)}
           />
         </Animated.View>
-      </Animated.View>
+      </View>
     </MaskedView>
   );
 };

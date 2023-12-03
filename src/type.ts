@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { ViewProps } from "react-native";
 
 export type Direction =
   | "leftToRight"
@@ -28,3 +29,5 @@ export type MaskedSkeletonProps = {
    */
   colors: string[];
 };
+
+export type SkeletonProps = ViewProps 

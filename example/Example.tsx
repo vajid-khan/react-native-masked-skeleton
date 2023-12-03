@@ -1,4 +1,6 @@
 import { View, StyleSheet } from "react-native";
+
+import { Skeleton } from "../src/Skeleton";
 import { MaskedSkeleton } from "../src/MaskedSkeleton";
 
 export const Example = () => {
@@ -20,51 +22,46 @@ export const Example = () => {
                 alignItems: "center",
               }}
             >
-              <View
+              <Skeleton
                 style={{
                   height: 100,
                   width: 100,
                   borderRadius: 100,
                   marginBottom: 10,
                   marginRight: 20,
-                  backgroundColor: "cyan",
                 }}
               />
               <View>
-                <View
+                <Skeleton
                   style={{
                     height: 10,
                     width: 100,
                     marginBottom: 10,
-                    backgroundColor: "cyan",
                   }}
                 />
-                <View
+                <Skeleton
                   style={{
                     height: 10,
                     width: 200,
                     marginBottom: 10,
-                    backgroundColor: "cyan",
                   }}
                 />
-                <View
+                <Skeleton
                   style={{
                     height: 10,
                     width: 250,
                     marginBottom: 10,
-                    backgroundColor: "cyan",
                   }}
                 />
               </View>
             </View>
 
-            <View
+            <Skeleton
               style={{
                 height: 200,
                 width: "100%",
                 marginBottom: 20,
                 borderRadius: 10,
-                backgroundColor: "cyan",
               }}
             />
             <View
@@ -73,21 +70,19 @@ export const Example = () => {
                 flexDirection: "row",
               }}
             >
-              <View
+              <Skeleton
                 style={{
                   height: 50,
                   width: "85%",
                   borderRadius: 10,
-                  backgroundColor: "cyan",
                 }}
               />
-              <View
+              <Skeleton
                 style={{
                   height: 50,
                   width: "10%",
                   marginLeft: 20,
                   borderRadius: 10,
-                  backgroundColor: "cyan",
                 }}
               />
             </View>
