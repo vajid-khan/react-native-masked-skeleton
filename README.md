@@ -19,10 +19,56 @@ $ yarn add react-native-masked-skeleton
 
 ## Usage
 ```javascript
-import React, { useState } from "react";
+import React from "react";
+import { View } from "react-native";
+import { Loader, Skeleton } from "react-native-masked-skeleton";
+
+const Placeholder = () => {
+  return (
+    <Loader
+      duration={3000}
+      direction="leftToRight"
+      colors={["#d3d3d3", "#3e3e3e"]}
+      maskElement={
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Skeleton
+            style={{
+              height: 100,
+              width: 100,
+              borderRadius: 100,
+              marginRight: 20,
+            }}
+          />
+          <View>
+            <Skeleton
+              style={{
+                height: 10,
+                width: 100,
+                marginBottom: 10,
+              }}
+            />
+            <Skeleton
+              style={{
+                height: 10,
+                width: 200,
+                marginBottom: 10,
+              }}
+            />
+          </View>
+        </View>
+      }
+    />
+  );
+};
+
 ```
 
-## MaskedSkeleton props
+## Loader props
 | Name            | Type       | Default          | Required  | Description           | Supported Values |
 | --------------- | ---------- | ---------------- | --------  | --------------------  |      -           |
 | `maskElement`   | number     |     -            | required  | Animation Duration    |      -           |
