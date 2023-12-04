@@ -1,4 +1,4 @@
-import { easeGradient } from "react-native-easing-gradient";
+import { colord } from "colord";
 
 import { Direction } from "./type";
 
@@ -20,24 +20,14 @@ export const getXYPosition = (direction: Direction) => {
   }
 };
 
-export const getGradientColors = (colors: string[]) => {
-  const start = getEasingColors(colors);
-  const end = getEasingColors(colors.reverse());
-  return [...start, ...end];
-};
-
-const getEasingColors = (colors: string[]) => {
-  const _colors = colors.reduce((acc, current, i) => {
-    return {
-      ...acc,
-      [i]: {
-        color: current,
-      },
-    };
-  }, {});
-
-  return easeGradient({
-    colorStops: _colors,
-    extraColorStopsPerTransition: 24,
-  }).colors;
+export const getGradientColors = (color: string, samples = 12) => {
+  const start = [];
+  for (let i = 0; i < samples; i++) {
+    start.push(
+      colord(color)
+        .lighten(i * -0.1)
+        .toHex()
+    );
+  }
+  return [...start, ...start.toReversed()];
 };

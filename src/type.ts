@@ -25,9 +25,13 @@ export type LoaderProps = {
    */
   direction?: Direction;
   /**
-   * Gradient colors.
+   * Forground colors.
    */
-  colors: string[];
+  color: string;
+  /**
+   * Background colors.
+   */
+  backgroundColor: string;
 };
 
-export type SkeletonProps = ViewProps 
+export type SkeletonProps = ViewProps;

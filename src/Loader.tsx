@@ -15,10 +15,11 @@ import { LoaderProps } from "./type";
 import { getXYPosition, getGradientColors } from "./utils";
 
 export const Loader = ({
-  colors,
+  color,
   maskElement,
   delay = 500,
   duration = 2000,
+  backgroundColor,
   direction = "leftToRight",
 }: LoaderProps) => {
   const translate = useSharedValue(0);
@@ -132,12 +133,12 @@ export const Loader = ({
 
   return (
     <MaskedView onLayout={onLayout} maskElement={maskElement}>
-      <View style={{ backgroundColor: colors[0] }}>
+      <View style={{ backgroundColor }}>
         <Animated.View style={animatedStyle}>
           <LinearGradient
             style={styles.gradient}
             {...getXYPosition(direction)}
-            colors={getGradientColors(colors)}
+            colors={getGradientColors(color)}
           />
         </Animated.View>
       </View>
